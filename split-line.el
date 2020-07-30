@@ -3,7 +3,10 @@
   (interactive)
   (let ((all-str (buffer-substring-no-properties (point-min) (point-max))))
     (let ((lines (split-string all-str " ")))
-      (dolist (element lines)
-        (prin1 lines)))))
+      (while (> (length lines) 0)
+        (setq line (car lines))
+        (goto-char (point-max))
+        (insert (concat "\n" line))
+        (setq lines (cdr lines))))))
       
 (provide 'split-line)
