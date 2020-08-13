@@ -1,8 +1,8 @@
-(defun format-simple()
+(defun format-simple(formatStr)
   "format the list"
-  (interactive)
+  (interactive "splease input")
   (let ((all-str (buffer-substring-no-properties (point-min) (point-max))))
-    (let ((lines (split-string all-str " ")))
+    (let ((lines (split-string all-str "\n")))
       (goto-char (point-min))
       (set-mark (point-max))
       (kill-region (region-beginning) (region-end))
@@ -10,7 +10,7 @@
      (while (> (length lines) 0)
        (setq line (car lines))
        (goto-char (point-max))
-       (insert (concat "\n" line))
-       (setq lines (cdr lines))))))
+       (insert (concat (format formatStr line) "\n"))
+       (Setq lines (cdr lines))))))
       
 (provide 'format-simple)
