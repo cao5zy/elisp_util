@@ -11,6 +11,6 @@
        (setq line (car lines))
        (goto-char (point-max))
        (insert (concat (format formatStr line) "\n"))
-       (Setq lines (cdr lines))))))
+       (setq lines (cdr lines))))))
       
 (provide 'format-simple)
